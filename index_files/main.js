@@ -4,22 +4,8 @@ jQuery.expr[":"].contains = function( elem, i, match, array ) {
     3
 }
 
-
-$('p').each(function(i,elem) {
-    $(this).hide();
-});
-
-$('ol').each(function(i,elem) {
-    $(this).hide();
-});
-
-$('ul').each(function(i,elem) {
-    $(this).hide();
-});
-
-$('.scrollup').each(function(i,elem) {
-    $(this).hide();
-});
+$('h1').show();
+$('#tin').show();
 
 $( "h1" ).click(function() {
     //e.preventDefault();
@@ -27,26 +13,17 @@ $( "h1" ).click(function() {
 
     $('body,html').animate({scrollTop: 0}, 0);
 
-    $('p').each(function(i,elem) {
-        $(this).hide();
-    });
-
-    $('ol').each(function(i,elem) {
-        $(this).hide();
-    });
-
-    $('ul').each(function(i,elem) {
-        $(this).hide();
-    });
-    $('h1').each(function(i,elem) {
-        $(this).hide();
-    });
+    $('p').hide();
+    $('ol').hide();
+    $('ul').hide();
+    $('h1').hide();
 
     $('.scrollup').show();
 
     $(this).show();
     $(this).nextUntil("h1").each(function(i, elem){
-        $(this).show();
+        $(elem).show();
+        $(elem).find('*').show();
     })
 });
 
@@ -57,21 +34,13 @@ $(document).ready(function () {
         $('#tin').val('');
         $('.scrollup').hide();
 
-        $('p').each(function(i,elem) {
-            $(this).hide();
-        });
+        $('p').hide();
 
-        $('ol').each(function(i,elem) {
-            $(this).hide();
-        });
+        $('ol').hide();
 
-        $('ul').each(function(i,elem) {
-            $(this).hide();
-        });
+        $('ul').hide();
 
-        $('h1').each(function(i,elem) {
-            $(this).show();
-        });
+        $('h1').show();
     });
 
 
@@ -96,12 +65,8 @@ $('#tin').keyup(function(e) {
             var $item = $(this),
                 value = $item.val();
 
-            $('h1').each(function(i,elem) {
-                $(this).hide();
-            });
-            $('h1:contains('+value+')').each(function(i,elem) {
-                $(this).show();
-            });
+            $('h1').hide();
+            $('h1:contains('+value+')').show();
         }
 
     }
